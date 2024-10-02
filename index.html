@@ -31,10 +31,44 @@
         header {
             text-align: center;
             margin-top: 20px;
+            position: relative;
+        }
+
+        /* Taped Logo Style */
+        .logo {
+            position: relative;
+            display: inline-block;
+            background: #fff;
+            padding: 10px;
+            border: 2px solid #ddd;
+            transform: rotate(-2deg);
         }
 
         .logo img {
-            width: 100px; /* Smaller logo size */
+            width: 75px; /* Reduced size by 25% */
+        }
+
+        /* Tape Effects for the Logo */
+        .logo::before,
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            background: #ffe082;
+            z-index: 1;
+        }
+
+        .logo::before {
+            top: -12px;
+            left: 10px;
+            transform: rotate(-15deg);
+        }
+
+        .logo::after {
+            bottom: -12px;
+            right: 10px;
+            transform: rotate(10deg);
         }
 
         .title {
@@ -75,7 +109,6 @@
             padding: 20px;
             background: #fff;
             border: 2px solid #ddd;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
             transform: rotate(-2deg);
         }
 
@@ -150,7 +183,7 @@
             <div class="logo">
                 <img src="logo.jpg" alt="Ratatoot Logo">
             </div>
-            <h1 class="title">$RAT | Ratatoot</h1>
+            <h1 class="title">Ratatoot</h1>
         </header>
 
         <section class="main-content">
