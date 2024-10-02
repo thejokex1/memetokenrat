@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$RAT | Ratatoot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc; /* Old paper background */
+            font-family: 'Permanent Marker', cursive;
+            overflow-x: hidden;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 100% 40px; /* Creates horizontal lines */
+        }
+
+        body {
+            cursor: url('pencil.png'), auto; /* Custom pencil cursor */
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo img {
+            width: 100px; /* Smaller logo size */
+        }
+
+        .title {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+
+        .icon-section {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .icon {
+            margin: 0 15px;
+            width: 60px;
+            transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
+
+        .icon:hover {
+            filter: grayscale(100%) contrast(150%) brightness(120%); /* Black and white effect */
+            transform: scale(1.2); /* Slight scaling */
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            text-align: center;
+            flex-direction: column; /* Stack content vertically */
+        }
+
+        .photo-paper {
+            position: relative;
+            margin: 20px 0;
+            display: inline-block;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #ddd;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            transform: rotate(-2deg);
+        }
+
+        .photo-paper::before,
+        .photo-paper::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 15px;
+            background: #ffe082; /* Light yellow color for the tape */
+            z-index: 1;
+        }
+
+        .photo-paper::before {
+            top: -10px;
+            left: 20px;
+            transform: rotate(-15deg);
+        }
+
+        .photo-paper::after {
+            bottom: -10px;
+            right: 20px;
+            transform: rotate(10deg);
+        }
+
+        .rat-image {
+            width: 300px;
+            height: auto;
+        }
+
+        .content-text {
+            max-width: 600px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sub-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #666;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .drawn-line {
+            position: absolute;
+            width: 2px; /* Thin line width */
+            height: 2px;
+            background: #333; /* Pencil color */
+            pointer-events: none;
+            transform-origin: top left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="logo.jpg" alt="Ratatoot Logo">
+            </div>
+            <h1 class="title">$RAT | Ratatoot</h1>
+        </header>
+
+        <section class="main-content">
+            <div class="photo-paper">
+                <img src="rat.jpg" alt="Ratatoot Image" class="rat-image">
+            </div>
+            <div class="content-text">
+                <h2 class="sub-title">The Story of Ratatoot</h2>
+                <p>Ratatoot is a washed-up degen rat who YOLO’d his entire bag aping into animal coins and rug-pulling politicians. Now he’s broke af, living in a cardboard box, but planning his comeback with his own meme token. Will he moon or stay rekt in the rat race forever?</p>
+            </div>
+        </section>
+
+        <!-- Moved Icons Below the Paragraph -->
+        <div class="icon-section">
+            <a href="#" target="_blank">
+                <img src="pumpfun.png" class="icon" alt="Pump Fun Icon">
+            </a>
+            <a href="https://t.me/yourtelegram" target="_blank">
+                <img src="Telegram.png" class="icon" alt="Telegram Icon">
+            </a>
+            <a href="https://twitter.com/yourtwitter" target="_blank">
+                <img src="Twitter.png" class="icon" alt="Twitter Icon">
+            </a>
+        </div>
+
+        <footer>
+            <p class="disclaimer">This is an experiment, and just for fun. There is no real value to this project. Do not take it as an investment. Just enjoy it.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Always Active Drawing Effect -->
+    <script>
+        const body = document.body;
+
+        let previousX = 0;
+        let previousY = 0;
+
+        function drawLine(e) {
+            const x = e.touches ? e.touches[0].pageX : e.pageX;
+            const y = e.touches ? e.touches[0].pageY : e.pageY;
+
+            const line = document.createElement("div");
+            line.className = "drawn-line";
+
+            const deltaX = x - previousX;
+            const deltaY = y - previousY;
+            const length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+
+            line.style.width = `${length}px`;
+            line.style.left = `${previousX}px`;
+            line.style.top = `${previousY}px`;
+            line.style.transform = `rotate(${angle}deg)`;
+
+            body.appendChild(line);
+
+            setTimeout(() => {
+                line.remove();
+            }, 1000);
+
+            previousX = x;
+            previousY = y;
+        }
+
+        body.addEventListener("mousemove", (e) => {
+            drawLine(e);
+        });
+
+        body.addEventListener("touchstart", (e) => {
+            previousX = e.touches[0].pageX;
+            previousY = e.touches[0].pageY;
+        });
+
+        body.addEventListener("touchmove", (e) => {
+            drawLine(e);
+        });
+    </script>
+</body>
+</html>
