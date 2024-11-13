@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$RAT | Ratatoot</title>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/jpeg">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #f5f5dc; /* Old paper background */
+            background-color: #f5f5dc;
             font-family: 'Permanent Marker', cursive;
             overflow-x: hidden;
             background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-            background-size: 100% 40px; /* Creates horizontal lines */
+            background-size: 100% 40px;
         }
 
         body {
-            cursor: url('pencil.png'), auto; /* Custom pencil cursor */
+            cursor: url('pencil.png'), auto;
         }
 
         ::selection {
-            background: black; /* Background color for selected text */
-            color: white;      /* Text color for selected text */
+            background: black;
+            color: white;
         }
+
         .container {
             width: 80%;
             margin: auto;
@@ -36,6 +36,27 @@
             text-align: center;
             margin-top: 20px;
             position: relative;
+        }
+
+        /* My Story Button */
+        .ratpaper-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #25250a;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Permanent Marker', cursive;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .ratpaper-button:hover {
+            background-color: #44440f;
+            transform: scale(1.1);
         }
 
         /* Taped Logo Style */
@@ -49,10 +70,9 @@
         }
 
         .logo img {
-            width: 75px; /* Reduced size by 25% */
+            width: 75px;
         }
 
-        /* Tape Effects for the Logo */
         .logo::before,
         .logo::after {
             content: '';
@@ -88,13 +108,13 @@
 
         .icon {
             margin: 0 15px;
-            width: 60px;
-            transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition */
+            width: 45px;
+            transition: filter 0.3s ease, transform 0.3s ease;
         }
 
         .icon:hover {
-            filter: grayscale(100%) contrast(150%) brightness(120%); /* Black and white effect */
-            transform: scale(1.2); /* Slight scaling */
+            transform: scale(1.2);
+        
         }
 
         .main-content {
@@ -103,7 +123,7 @@
             align-items: center;
             margin: 30px 0;
             text-align: center;
-            flex-direction: column; /* Stack content vertically */
+            flex-direction: column;
         }
 
         .photo-paper {
@@ -122,7 +142,7 @@
             position: absolute;
             width: 60px;
             height: 15px;
-            background: #ffe082; /* Light yellow color for the tape */
+            background: #ffe082;
             z-index: 1;
         }
 
@@ -173,9 +193,9 @@
 
         .drawn-line {
             position: absolute;
-            width: 2px; /* Thin line width */
+            width: 2px;
             height: 2px;
-            background: #333; /* Pencil color */
+            background: #333;
             pointer-events: none;
             transform-origin: top left;
         }
@@ -197,10 +217,12 @@
             <div class="content-text">
                 <h2 class="sub-title">The Story of Ratatoot</h2>
                 <p>Ratatoot is a washed-up degen rat who YOLO’d his entire bag aping into animal coins and rug-pulling politicians. Now he’s broke af, living in a cardboard box, but planning his comeback with his own meme token. Will he moon or stay rekt in the rat race forever?</p>
+                
+                <!-- My Story Button moved here -->
+                <a href="mystory.html" class="ratpaper-button">My Story</a>
             </div>
         </section>
 
-        <!-- Moved Icons Below the Paragraph -->
         <div class="icon-section">
             <a href="https://www.dextools.io/app/en/solana/pair-explorer/5D4kV7jnNNbUuKvd2dneQGERihSvA9syGsFChXPu6Eh7" target="_blank">
                 <img src="dextools.png" class="icon" alt="Dextools">
@@ -224,7 +246,6 @@
         </footer>
     </div>
 
-    <!-- JavaScript for Always Active Drawing Effect -->
     <script>
         const body = document.body;
 
