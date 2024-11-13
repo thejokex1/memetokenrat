@@ -38,7 +38,6 @@
             position: relative;
         }
 
-        /* My Story Button */
         .ratpaper-button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -59,7 +58,6 @@
             transform: scale(1.1);
         }
 
-        /* Taped Logo Style */
         .logo {
             position: relative;
             display: inline-block;
@@ -71,28 +69,6 @@
 
         .logo img {
             width: 75px;
-        }
-
-        .logo::before,
-        .logo::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 10px;
-            background: #ffe082;
-            z-index: 1;
-        }
-
-        .logo::before {
-            top: -12px;
-            left: 10px;
-            transform: rotate(-15deg);
-        }
-
-        .logo::after {
-            bottom: -12px;
-            right: 10px;
-            transform: rotate(10deg);
         }
 
         .title {
@@ -114,7 +90,6 @@
 
         .icon:hover {
             transform: scale(1.2);
-        
         }
 
         .main-content {
@@ -134,28 +109,6 @@
             background: #fff;
             border: 2px solid #ddd;
             transform: rotate(-2deg);
-        }
-
-        .photo-paper::before,
-        .photo-paper::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 15px;
-            background: #ffe082;
-            z-index: 1;
-        }
-
-        .photo-paper::before {
-            top: -10px;
-            left: 20px;
-            transform: rotate(-15deg);
-        }
-
-        .photo-paper::after {
-            bottom: -10px;
-            right: 20px;
-            transform: rotate(10deg);
         }
 
         .rat-image {
@@ -178,6 +131,18 @@
             font-size: 18px;
             line-height: 1.6;
         }
+          /* ADDRESSSSSSSSSSSSSS */
+        .copy-address {
+            font-size: 18px;
+            font-family: 'Permanent Marker', cursive;
+            cursor: pointer;
+            color: #333;
+            padding: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        /* Centered Horizontal Scrolling Gallery */
         .gallery-container {
             display: flex;
             justify-content: center;
@@ -187,8 +152,8 @@
         .gallery {
             display: flex;
             overflow-x: auto;
-            gap: 10px;
-            padding: 20px 0;
+            gap: 5px;
+            padding: 5px 0;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
@@ -246,9 +211,12 @@
             <div class="content-text">
                 <h2 class="sub-title">The Story of Ratatoot</h2>
                 <p>Ratatoot is a washed-up degen rat who YOLO’d his entire bag aping into animal coins and rug-pulling politicians. Now he’s broke af, living in a cardboard box, but planning his comeback with his own meme token. Will he moon or stay rekt in the rat race forever?</p>
-                
-                <!-- My Story Button moved here -->
+
                 <a href="mystory.html" class="ratpaper-button">My Story</a>
+            </div>
+
+            <div class="copy-address" id="copyAddress" onclick="copyAddressText()">
+                Contract: 6fBH21....ckSNpump
             </div>
         </section>
 
@@ -331,6 +299,25 @@
         body.addEventListener("touchmove", (e) => {
             drawLine(e);
         });
+
+        function copyAddressText() {
+            const addressElement = document.getElementById("copyAddress");
+            const fullAddress = "6fBH21vDk8nE7Fvv46iWhgrkrNSiLTBSBaSockSNpump"; // Full address to copy
+
+            // Copy full address to clipboard
+            navigator.clipboard.writeText(fullAddress).then(() => {
+                // Temporarily change text to "Address Copied!"
+                const originalText = addressElement.innerText;
+                addressElement.innerText = "Address Copied!";
+
+                // Revert to original display text after 2 seconds
+                setTimeout(() => {
+                    addressElement.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy text: ", err);
+            });
+        }
     </script>
 </body>
 </html>
