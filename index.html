@@ -193,14 +193,22 @@
             pointer-events: none;
             transform-origin: top left;
         }
+
+        .rat-image {
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    display: block; /* Prevent inline spacing issues */
+    margin: auto; /* Center the image */
+    border: 2px solid #ddd; /* Optional: Add a border for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
+    background-color: #fff; /* Optional: Placeholder color in case of loading delay */
+}
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">
-                <img src="ratt.png" alt="Ratatoot Logo">
-            </div>
             <h1 class="title">Ratatoot</h1>
         </header>
 
@@ -318,6 +326,17 @@
                 console.error("Failed to copy text: ", err);
             });
         }
+        const imageElement = document.querySelector(".rat-image"); // Select the image element
+        const imageSources = ["ratphoto1.png", "ratphoto2.png", "ratphoto3.png", "ratphoto4.png", "ratphoto5.png"]; // Array of image sources
+        let currentImageIndex = 0; // To keep track of the current image index
+
+        function changeImage() {
+        currentImageIndex = (currentImageIndex + 1) % imageSources.length; // Cycle through images
+        imageElement.src = imageSources[currentImageIndex]; // Update the image source
+        }
+
+        setInterval(changeImage, 2000); // Change image every 2000ms (2 seconds)
+
     </script>
 </body>
 </html>
