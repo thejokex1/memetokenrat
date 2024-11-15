@@ -19,6 +19,9 @@
 
         body {
             cursor: url('pencil.png'), auto;
+            margin: 0;
+            padding: 0;
+
         }
 
         ::selection {
@@ -26,37 +29,20 @@
             color: white;
         }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-        }
-
         header {
             text-align: center;
-            margin-top: 20px;
-            position: relative;
+            margin-top: 0px;
+            width: 100vw; /* Full viewport width */
+            height: 300px; /* Adjust height as needed */
+            background-image: url('header-background.png'); /* Replace with your image path */
+            background-size: cover; /* Scale the image to cover the full area */
+            background-position: center left; /* Center the image both horizontally and vertically */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-color: #ffffff33;
+            background-blend-mode:overlay; /* Blend the background image and color */
+
         }
 
-        .ratpaper-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #25250a;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Permanent Marker', cursive;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .ratpaper-button:hover {
-            background-color: #44440f;
-            transform: scale(1.1);
-        }
 
         .logo {
             position: relative;
@@ -103,7 +89,7 @@
 
         .photo-paper {
             position: relative;
-            margin: 10px 0;
+            margin: 25px 0;
             display: inline-block;
             padding: 20px;
             background: #fff;
@@ -149,7 +135,7 @@
         .gallery-container {
             display: flex;
             justify-content: center;
-            margin: 30px 0;
+            margin: 50px;
         }
 
         .gallery {
@@ -202,7 +188,7 @@
     height: 300px; /* Fixed height */
     object-fit: cover; /* Ensures the image fills the area without distortion */
     display: block; /* Prevent inline spacing issues */
-    margin: auto; /* Center the image */
+    margin: 15px; /* Center the image */
     border: 2px solid #ddd; /* Optional: Add a border for consistency */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
     background-color: #fff; /* Optional: Placeholder color in case of loading delay */
@@ -234,7 +220,7 @@
 /* Scrolling text */
 .marquee {
     display: inline-block;
-    animation: marquee 18s linear infinite; /* Adjust the speed as needed */
+    animation: marquee 25s linear infinite; /* Adjust the speed as needed */
     white-space: nowrap; /* Ensure text doesn’t wrap */
 }
 
@@ -256,7 +242,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="header">
             <div class="logo-container">
                 <img src="ratanimation.gif" alt="Ratatoot Animated Logo" class="logo-image">
             </div>
