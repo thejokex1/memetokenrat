@@ -103,7 +103,7 @@
 
         .photo-paper {
             position: relative;
-            margin: 20px 0;
+            margin: 10px 0;
             display: inline-block;
             padding: 20px;
             background: #fff;
@@ -133,11 +133,14 @@
         }
           /* ADDRESSSSSSSSSSSSSS */
         .copy-address {
-            font-size: 18px;
+            font-size: 25px;
             font-family: 'Permanent Marker', cursive;
             cursor: pointer;
-            color: #333;
+            color: hsl(48, 93%, 11%);
+            background-color: #fafafa;
+            border-radius: 20px;
             padding: 10px;
+            margin: 10px;
             display: inline-block;
             transition: color 0.3s ease;
         }
@@ -215,6 +218,38 @@
     height: auto; /* Maintain proportions */
 }
 
+/* Marquee container */
+.marquee-container {
+    width: 100vw; /* Full width of the viewport */
+    padding: 0; /* Remove padding to avoid extra spacing */
+    margin: 0; /* Remove margin to align perfectly with edges */
+    white-space: nowrap; /* Prevent wrapping of text */
+    color: hsl(0, 0%, 0%); /* Bright yellow text */
+    font-family: 'Archivo Black', sans-serif; /* Modern bold font */
+    font-weight: bold;
+    font-size: 2rem; /* Adjust font size */
+    line-height: 1.5; /* Adjust spacing for better readability */
+}
+
+/* Scrolling text */
+.marquee {
+    display: inline-block;
+    animation: marquee 18s linear infinite; /* Adjust the speed as needed */
+    white-space: nowrap; /* Ensure text doesn’t wrap */
+}
+
+/* Scrolling animation */
+@keyframes marquee {
+    from {
+        transform: translateX(15%); /* Start just off the right edge */
+    }
+    to {
+        transform: translateX(-100%); /* End just off the left edge */
+    }
+}
+
+
+
 
 
     </style>
@@ -225,20 +260,21 @@
             <div class="logo-container">
                 <img src="ratanimation.gif" alt="Ratatoot Animated Logo" class="logo-image">
             </div>
-            
-        </header>
 
+            <!-- Scrolling Marquee Section -->
+            <div class="marquee-container">
+        <div class="marquee">RATATOOT! THE RAT THAT NEVER STOPS GRINDING, NEVER GIVES UP, NEVER QUITS, AND NEVER SETTLES FOR SMALL GAINS OR MINOR SUCCESSES. THE RAT THAT, NO MATTER THE MARKET CONDITIONS, CONTINUES TO GRIND, AIMS HIGHER, AND STRIVES TO HELP HIS FELLOW RATS SUCCEED. ARE YOU IN?</div>
+        </div>
+        </header>
         <section class="main-content">
+           
             <div class="photo-paper">
                 <img src="ratphoto.jpg" alt="Ratatoot Image" class="rat-image">
             </div>
             <div class="content-text">
                 <h2 class="sub-title">The Story of Ratatoot</h2>
                 <p>Ratatoot is a washed-up degen rat who YOLO’d his entire bag aping into animal coins and rug-pulling politicians. Now he’s broke af, living in a cardboard box, but planning his comeback with his own meme token. Will he moon or stay rekt in the rat race forever?</p>
-
-                <a href="mystory.html" class="ratpaper-button">My Story</a>
             </div>
-
             <div class="copy-address" id="copyAddress" onclick="copyAddressText()">
                 Contract: 6fBH21....ckSNpump
             </div>
