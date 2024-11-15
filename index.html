@@ -204,12 +204,27 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
     background-color: #fff; /* Optional: Placeholder color in case of loading delay */
 }
+
+.logo-container {
+    display: inline-block; /* Ensure it sits next to the title */
+    vertical-align: middle; /* Aligns with the text */
+    margin-right: 10px; /* Add some spacing to the title */
+}
+
+.logo-image {
+    width: 250px; /* Adjust logo size */
+    height: auto; /* Maintain proportions */
+    display: block; /* Prevent inline spacing issues */
+}
+
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 class="title">Ratatoot</h1>
+            <div class="logo-container">
+                <img src="ratt.png" alt="Ratatoot Logo" class="logo-image">
+            </div>
         </header>
 
         <section class="main-content">
